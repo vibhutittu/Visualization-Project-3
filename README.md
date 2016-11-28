@@ -12,8 +12,11 @@ Akash: Worked on use cases
 
 ## Next week Meeting Tasks(11/28/2016)
 
-Vibhuti Gupta: Work on visualizing scatter plot of some of the intresting information fetched from cBioPortal for each protein on all cancer studies
+Vibhuti Gupta: Work on visualizing scatter plot of some of the intresting information such as male and female ratio fetched from cBioPortal for each protein on all cancer studies
 
 Kiran: Work on fetching data using web API.
 
 Akash: Find and display images for the different types of cancers associated with the protein. 
+
+We have worked on fetching the male and female ratio for each cancer study in cbioportal and visualize it in a form of scatter plot. Initial phase of fetching the data is being done.
+
