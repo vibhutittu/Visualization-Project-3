@@ -20,3 +20,8 @@ Akash: Find and display images for the different types of cancers associated wit
 
 We have worked on fetching the male and female ratio for each cancer study in cbioportal and visualize it in a form of scatter plot. Initial phase of fetching the data is being done.
 
+## Next week Meeting Tasks(12/05/2016)
+
+Vibhuti Gupta: Work on the drop down for all cancer studies and visualizing the network of 10 most important genes studied in that.
+
+Kiran: Visualize the scatter plot for some parameters on selecting the study from the drop down.
