@@ -1,0 +1,156 @@
+for (var p=0;p<profileIds.length;p++){  
+  			cBioPortalData[geneName][p] = new Object();		 		
+			for (var i=0;i<studyIds.length;i++){  
+				var strServer = "http://www.cbioportal.org/webservice.do?";	
+				// Profile blca_tcga_pub_gistic  blca_tcga_pub_mutations
+				var study = studyIds[i];
+				var profile = profileIds[p];
+				
+				//var request = "cmd=getProfileData&case_set_id="+study+"_all&genetic_profile_id="+study+profile+"&gene_list="+geneName;
+				var request = "cmd=getClinicalData&case_set_id="+study+"_all"
+				console.log("Request URL:::::"+request); 
+				var str2 = strServer+request;
+				(function(request,i,p) { 	
+					d3.csv(str2, function(error, json) {
+					 	if (error) {
+							console.warn("warn: "+error);
+						//	updateNodeColors();
+						//debugger;
+							return;
+						}	
+					})
+					.get()
+					.on('load', function(d) { 
+						var case_id_count=0;
+						var cancer_type_count=0;
+						var male_count=0;
+						var female_count=0;
+						var days_to_collection_count=0;
+						for(var i=0;i<d.length;i++)
+						{
+							for( key in d[i])
+							{
+								var case_id_value=0;
+								var cancer_type_val=0;
+								var cancer_type_detailed_val=0;
+								//var days_to_collection_val=0;
+								// To fetch the index 
+								var case_id=key.split("	").indexOf("CASE_ID")
+								var cancer_type=key.split("	").indexOf("CANCER_TYPE")
+								var cancer_type_detailed=key.split("	").indexOf("CANCER_TYPE_DETAILED")
+								var days_to_collection=key.split("	").indexOf("DAYS_TO_COLLECTION")
+								var sex=key.split("	").indexOf("SEX")
+								var gender=key.split("	").indexOf("GENDER")
+								case_id_val=d[i][key].split("	")[case_id];
+								cancer_type_val=d[i][key].split("	")[cancer_type];
+								cancer_type_detailed_val=d[i][key].split("	")[cancer_type_detailed];
+								if(days_to_collection>=0)
+								{
+									var cur_row_val=d[i][key].split("	")[days_to_collection];
+									console.log("cuurrrrr:::"+cur_row_val);
+									debugger;
+									//var days_to_collection_count=0;
+									days_to_collection_count=days_to_collection_count+cur_row_val;
+									
+								}
+								
+								//console.log("Case ID is"+case_id_val+" "+"and cancer_type is "+cancer_type_val);
+								//key.indexOf("SEX")  key.indexOf("GENDER")
+								//d[i][key].split("	")[key.split("	").indexOf("SEX")]
+								//debugger;
+								/*
+								while(case_id_count>1)
+								{
+									if(case_id_count>-1)
+									{
+										var cur_row_val=d[i][key].split("	")[case_id];
+										//if(cur_row_val=="M" || cur_row_val=="MALE")
+										//{
+											case_id_count=case_id_count+1;
+											console.log("Case ID corresponding to "+case_id_count+" "+"row is "+cur_row_val);
+										//}
+										/*
+										else if(cur_row_val=="F" || cur_row_val=="FEMALE")
+										{
+											female_count=female_count+1;
+										}
+										
+										
+									}
+								}
+								*/
+								if(sex>-1)
+								{
+									var cur_row_val=d[i][key].split("	")[sex];
+									if(cur_row_val=="M" || cur_row_val=="MALE")
+									{
+										male_count=male_count+1;
+									}
+									else if(cur_row_val=="F" || cur_row_val=="FEMALE")
+									{
+										female_count=female_count+1;
+									}
+										
+								}
+								else if(gender>-1)
+								{
+									var cur_row_val=d[i][key].split("	")[""||gender];
+									if(cur_row_val=="M" || cur_row_val=="MALE")
+									{
+										male_count=male_count+1;
+									}
+									else if(cur_row_val=="F" || cur_row_val=="FEMALE")
+									{
+										female_count=female_count+1;
+									}
+										
+								}
+
+							}
+							//debugger;
+						}
+					console.log("CANCER_TYPE is "+cancer_type_val+",|||||| CANCER_TYPE_DETAILED="+cancer_type_detailed_val+", ||||| DAYS_TO_COLLECTION="+days_to_collection_count+" and its |||||| Male Count="+male_count+" "+", ||||| Female Count="+female_count);
+						//debugger;
+					/*
+					 	var count=0;
+					 	if (d.length>0){
+					 		var propertyName = profileDefaultProperty[p];
+					 		//console.log("1_"+propertyName); 
+					 		for (key in d[2]) {
+					 			if (key.indexOf("# DATA_TYPE")>-1)
+					 				propertyName = key;
+					 			else if (key.indexOf("Unknown gene")>-1){
+					 				propertyName = key;
+					 			}
+					 				
+					 		}
+					 		//console.log("2_"+propertyName); 
+					 		if (propertyName.indexOf("Unknown gene")>-1)
+					 		{
+								//console.log(propertyName); 	
+							}	
+							else{
+							 	var arr = d3.tsv.parseRows(d[2][propertyName])[0];
+							 	
+							 	for (var j=0;j<arr.length;j++){
+							 		if (arr[j]!="NaN" && arr[j]!="0")
+							 			count++;
+							 	} 
+							 	//console.log(profileIds[p]+" "+i+" study="+studyIds[i]+" count="+count+ " /"+arr.length); 
+						 		cBioPortalData[geneName][p][i] = new Object();	
+						 		cBioPortalData[geneName][p][i]["count"] = count;
+						 		cBioPortalData[geneName][p][i]["array"] = arr;		 		
+						 	}
+						}
+						else
+						{
+							//console.log(profileIds[p]+" "+i+" study="+studyIds[i]+"  Empty result"); 	
+						}
+							
+					    
+					    //updateNodeColors();	
+					*/						
+					});  
+				 })(request,i,p);
+			} 
+		}
