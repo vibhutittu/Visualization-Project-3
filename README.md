@@ -8,7 +8,7 @@ Please click to watch the overview video.
 
 ## Link for my web application is
 
-https://vibhutittu.github.io/Visualization-Project-3/
+https://vibhutittu.github.io/Visualization-Project-3/Home.html
 
 In this Project we will work on fetching the protein data from cBioPortal using its web API and display it using some plots/graphs. There are research data of 147 Cancer studies in cBioPortal. Each study comparises of various parameters like mutation count, Genes mutatated, male/female ratio,Diagnosis age, Copy number alterations etc. We reserched on the cancer studies mentioned in cBioPortal to get an idea of the parameters used in each cancer study and then choose the parameters to display using plots/graphs. So we have found the male/female counts for each study and grouped them according to the cancer type. Also we found other parameters like the ethinicity of people in that cancer studies, diagnosis age etc. 
 
