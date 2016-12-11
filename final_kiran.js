@@ -76,7 +76,7 @@ function Fetch_from_Data_Set(stdID)
   		for (var p=0;p<profileIds.length;p++){  
   			//cBioPortalData[geneName][p] = new Object();		 		
 			for (var i=0;i<studyIds.length;i++){  
-				var strServer = "http://www.cbioportal.org/webservice.do?";	
+				var strServer = "https://www.cbioportal.org/webservice.do?";	
 				// Profile blca_tcga_pub_gistic  blca_tcga_pub_mutations
 				var tmp=stdID;
 				var study = tmp;
