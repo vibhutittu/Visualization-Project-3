@@ -1,4 +1,4 @@
-##Visualization_Project2: Protein Interaction Network Visualization using cBio Portal
+##Visualization_Project3: Protein Interaction Network Visualization using cBio Portal
 Please click to watch the overview video.
 
 
