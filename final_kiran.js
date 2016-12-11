@@ -53,8 +53,8 @@ function getResult(){
 						fetch_data_array.push(temp_var);
 						
 						}
-						//addScatterPlot(fetch_data_array);
-						addParallelCoordinates(fetch_data_array);
+						addScatterPlot(fetch_data_array);
+						//addParallelCoordinates(fetch_data_array);
 						//addPieChart(fetch_data_array);
 						console.log(fetch_data_array);
 
