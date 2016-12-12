@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equi="Content-Type" content="text/html"; charset="utf-8" />
+<link rel="stylesheet" href="css/app.css"> 
+ <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  <title>Protein Visualization</title>
+  
+</head>
+
+<body>
+
+<div id="divWrapper">
+	<div id="divHeader"><h1 text-align="center">Network Visualization</h1></div>
+	<div id="divLine"></div>
+	<div id="divLinks">
+		<div id="divNav">
+			<ul>
+				<li><a href="#" onClick="MaleGraph();">Pie-Chart - MALE</a></li>
+                <li><a href="#" onClick="FemaleGraph();">Pie-Chart - FEMALE</a></li>						
+				<li><a href="reHome.html" class="current">Scatter Plot</a></li>
+				<li><a href="#" onClick="AllGraph();">For All CancerTypes</a></li>
+				<li><a href="#" onClick="DetailedAllGraph();">CancerType_Detailed</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="divLine"></div>
+</div>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script type='text/javascript' src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"> </script>
+  
+  
+<!-- <h1>Network Visualization</h1> -->
+<div id="visualizations">
+  <div id="options">
+    <div id="topOptions">
+      
+      <div id="intervalSelection">
+        <h5>Choose a Study ID:</h5>
+        <table>
+          <tr>
+            <td>
+            <select id="sid">
+			    <option>paac_jhu_2014</option>
+                <option>laml_tcga_pub</option>
+                <option>laml_tcga</option>
+                <option>acyc_mskcc</option>
+                <option>acc_tcga</option>
+                <option>blca_mskcc_solit_2014</option>
+                <option>blca_mskcc_solit_2012</option>
+                <option>blca_mskcc_signet_ring_impact</option>
+                <option>blca_plasmacytoid_mskcc_2016</option>
+                <option>blca_bgi</option>
+                <option>blca_dfarber_mskcc_2014</option>
+                <option>blca_tcga_pub</option>
+				<option>blca_tcga</option>
+				<option>lgg_tcga</option>
+				<option>brca_bccrc</option>
+				<option>brca_broad</option>
+				<option>brca_sanger</option>
+				<option>brca_tcga_pub2015</option>
+				<option>brca_tcga_pub</option>
+				<option>brca_tcga</option>
+				<option>brca_bccrc_xenograft_2014</option>
+				<option>cellline_ccle_broad</option>
+				<option>chol_nus_2012</option>
+				<option>chol_nccs_2013</option>
+				<option>chol_tcga</option>
+				<option>ccrcc_utokyo_2013</option>
+				<option>coadread_genentech</option>
+				<option>coadread_tcga_pub</option>
+				<option>coadread_tcga</option>
+				<option>coadread_mskcc</option>
+				<option>cscc_dfarber_2015</option>
+				<option>desm_broad_2015</option>
+				<option>esca_broad</option>
+				<option>esca_tcga</option>
+				<option>escc_icgc</option>
+				<option>escc_ucla_2014</option>
+				<option>es_iocurie_2014</option>
+				<option>gbc_shanghai_2014</option>
+				<option>egc_tmucih_2015</option>
+				<option>gbm_tcga_pub2013</option>
+				<option>gbm_tcga_pub</option>
+				<option>gbm_tcga</option>
+				<option>hnsc_broad</option>
+				<option>hnsc_jhu</option>
+				<option>hnsc_tcga_pub</option>
+				<option>hnsc_tcga</option>
+				<option>all_stjude_2015</option>
+				<option>chol_jhu_2013</option>
+				<option>kich_tcga_pub</option>
+				<option>kich_tcga</option>
+				<option>kirc_bgi</option>
+				<option>kirc_tcga_pub</option>
+				<option>kirc_tcga</option>
+				<option>kirp_tcga</option>
+				<option>lihc_amc_prv</option>
+				<option>lihc_riken</option>
+				<option>lihc_tcga</option>
+				<option>lgg_ucsf_2014</option>
+				<option>luad_broad</option>
+				<option>luad_mskcc_2015</option>
+				<option>luad_tcga_pub</option>
+				<option>luad_tcga</option>
+				<option>luad_tsp</option>
+				<option>lusc_tcga_pub</option>
+				<option>lusc_tcga</option>
+				<option>dlbc_tcga</option>
+				<option>mpnst_mskcc</option>
+				<option>mbl_broad_2012</option>
+				<option>mbl_icgc</option>
+				<option>mbl_pcgp</option>
+				<option>skcm_broad_dfarber</option>
+				<option>lgggbm_tcga_pub</option>
+				<option>meso_tcga</option>
+				<option>prad_su2c_2015</option>
+				<option>mm_broad</option>
+				<option>ccrcc_irc_2014</option>
+				<option>cellline_nci60</option>
+				<option>npc_nusingapore</option>
+				<option>nbl_amc_2012</option>
+				<option>nepc_wcm</option>
+				<option>ov_tcga_pub</option>
+				<option>ov_tcga</option>
+				<option>paad_icgc</option>
+				<option>paad_tcga</option>
+				<option>paad_utsw_2015</option>
+				<option>panet_jhu_2011</option>
+				<option>thca_tcga_pub</option>
+				<option>es_dfarber_broad_2014</option>
+				<option>pcpg_tcga</option>
+				<option>thyroid_mskcc_2016</option>
+				<option>pcnsl_mayo_2015</option>
+				<option>prad_broad_2013</option>
+				<option>prad_broad</option>
+				<option>prad_mskcc</option>
+				<option>prad_fhcrc</option>
+				<option>prad_tcga_pub</option>
+				<option>prad_tcga</option>
+				<option>prad_mskcc_2014</option>
+				<option>prad_mskcc_cheny1_organoids_2014</option>
+				<option>prad_mich</option>
+				<option>nccrcc_genentech_2014</option>
+				<option>rms_nih_2014</option>
+				<option>sarc_mskcc</option>
+				<option>sarc_tcga</option>
+				<option>skcm_broad</option>
+				<option>skcm_tcga</option>
+				<option>skcm_yale</option>
+				<option>scco_mskcc</option>
+				<option>sclc_clcgp</option>
+				<option>sclc_jhu</option>
+				<option>sclc_ucologne_2015</option>
+				<option>stad_pfizer_uhongkong</option>
+				<option>stad_tcga_pub</option>
+				<option>stad_tcga</option>
+				<option>stad_utokyo</option>
+				<option>stad_uhongkong</option>
+				<option>tgct_tcga</option>
+				<option>tet_nci_2014</option>
+				<option>thym_tcga</option>
+				<option>ucs_jhu_2014</option>
+				<option>ucs_tcga</option>
+				<option>ucec_tcga</option>
+				<option>ucec_tcga_pub</option>
+				<option>uvm_tcga</option>
+				 </select>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+ </div>
+</div>
+<button onclick="setGraph()">submit</button>
+<button onclick="clearGraph()">Clear</button>
+<script src="final_kiran.js"> </script>
+
+ 
+
+</body>
+
+
+
+
