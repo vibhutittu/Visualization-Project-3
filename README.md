@@ -39,40 +39,19 @@ Above mentioned contributions are only the overview of some of the tasks but we 
 
 ## Basic Functionalities are shown below along with Screenshots
 
+### Scatter Plot for displaying all male and female count based on cancer types
+
+![p3_gupta_vibhuti](https://cloud.githubusercontent.com/assets/19288804/21096533/f461a3f6-c025-11e6-8c27-df0f640da8ea.jpg)
+
+### Pie Chart showing the male count with the cancer types
+
+![pie_male](https://cloud.githubusercontent.com/assets/19288804/21096562/173abf52-c026-11e6-89a6-ce0d4ab13678.JPG)
+
+### Pie Chart showing the female count with the cancer types
+
+![pie_female](https://cloud.githubusercontent.com/assets/19288804/21096544/06bcc35a-c026-11e6-8846-9164baffa2ed.JPG)
 
 
 
 
 
-
-
-
-
-
-
-
-## Weekly Progress reports
-
-## Weekly Meeting Progress(11/21/2016)
-
-Vibhuti Gupta: Performed Research on the Protein and cBioportal to get the information to display on the network.
-
-Kiran: Worked on web API to get an idea for api request and response
-
-Akash: Worked on use cases
-
-## Next week Meeting Tasks(11/28/2016)
-
-Vibhuti Gupta: Work on visualizing scatter plot of some of the intresting information such as male and female ratio fetched from cBioPortal for each protein on all cancer studies
-
-Kiran: Work on fetching data using web API.
-
-Akash: Find and display images for the different types of cancers associated with the protein. 
-
-We have worked on fetching the male and female ratio for each cancer study in cbioportal and visualize it in a form of scatter plot. Initial phase of fetching the data is being done.
-
-## Next week Meeting Tasks(12/05/2016)
-
-Vibhuti Gupta: Work on the drop down for all cancer studies and visualizing the network of 10 most important genes studied in that.
-
-Kiran: Visualize the scatter plot for some parameters on selecting the study from the drop down.
