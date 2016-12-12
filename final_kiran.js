@@ -154,7 +154,7 @@ function getResult(){
 						addAllScatterPlot(fetch_data_array);
 						
       } else {
-           setTimeout(getResult, 250);
+           setTimeout(getAllResult, 250);
       }
  }
  
@@ -176,7 +176,7 @@ function getResult(){
 						console.log(fetch_data_array);
 
       } else {
-           setTimeout(getResult, 250);
+           setTimeout(getResultDetailed, 250);
       }
  }
  
