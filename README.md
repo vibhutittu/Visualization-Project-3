@@ -52,7 +52,20 @@ Above mentioned contributions are only the overview of some of the tasks but we 
 
 ![pie_female](https://cloud.githubusercontent.com/assets/19288804/21096544/06bcc35a-c026-11e6-8846-9164baffa2ed.JPG)
 
+## Softwares required:
+Following are the softwares required to run this file,
+1) Web browser[Internet Explorer, Mozilla Firefox, Google Chrome]
+2) D3 Library[Optional]
 
+
+## How to run the program:
+Following are the steps to run the program,
+
+Open any web browser and type in the url- "https://vibhutittu.github.io/Visualization-Project-3/Home.html" .
+
+## Acknowledgement:
+
+This Project is the project 3 of data visualization course. We acknowledge Dr. Tommy Dang for his valuable support and suggestions for this project. 
 
 
 
